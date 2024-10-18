@@ -47,6 +47,6 @@ public class DataGenerator {
 
     public static String getRandomEmail() {
         Faker faker = new Faker(new Locale("en"));
-        return faker.internet().emailAddress()
+        return faker.internet().emailAddress();
     }
 }
