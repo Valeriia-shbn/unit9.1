@@ -1,6 +1,13 @@
 plugins {
     id 'java'
     id 'io.freefair.lombok' version '8.3'
+    id 'io.qameta.allure' version '2.11.2'
+
+}
+allure {
+    version = '2.20.1' // Use the latest Allure version
+    autoconfigure = true
+    aspectjweaver = true
 }
 
 group = 'ru.netology'
@@ -9,6 +16,7 @@ compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 repositories {
     mavenCentral()
+
 }
 
 dependencies {
@@ -20,6 +28,8 @@ dependencies {
     implementation 'com.github.javafaker:javafaker:1.0.2'
     compileOnly 'org.projectlombok:lombok:1.18.28'
     annotationProcessor 'org.projectlombok:lombok:1.18.28'
+    testImplementation 'io.qameta.allure:allure-junit5:2.19.0'
+    testImplementation 'io.qameta.allure:allure-selenide:2.19.0'
 }
 
 test {

@@ -39,6 +39,9 @@ out/
 *.tar.gz
 *.rar
 
+### Report ###
+allure-results/
+
 ### Exclusions ###
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**

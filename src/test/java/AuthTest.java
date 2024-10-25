@@ -1,21 +1,29 @@
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import dataGeneration.DataGenerator;
 
 import static com.codeborne.selenide.Selenide.$;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.*;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.open;
 
 class AuthTest {
-
+    @BeforeAll
+    public static void setUpAll() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(true));
+    }
     @BeforeEach
     void setup() {
         open("http://localhost:9999");
+    }
+
+    @AfterAll
+    public static void tearDownAll() {
+        SelenideLogger.removeListener("AllureSelenide");
     }
 
     @Test
